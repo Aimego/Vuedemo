@@ -13,7 +13,8 @@
 			</el-row></div>
 		</div>
 		<div class="Person-img">
-			<el-avatar :size="100" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+			<el-avatar v-if="isUse" :size="100" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+			<el-avatar v-else="isUse" :size="100" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
 		</div>
 	</div>
 	
@@ -25,7 +26,7 @@
 		<div class="Mes-item-icon5">我的收藏</div>
 	</div>
 	
-	<el-empty  :image-size="200"></el-empty>
+	<el-empty  :image-size="250"></el-empty>
 </div>
 </template>
 

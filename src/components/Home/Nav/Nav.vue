@@ -1,28 +1,8 @@
 <template>
 	<div class="nav">
-		<NavItem>
-			<img slot="icon" src="../../../assets/nav/旅游景点.png" alt="">
-			<div slot="text">景点·玩乐</div>
-		</NavItem>
-		
-		<NavItem>
-			<img slot="icon" src="../../../assets/nav/景点.png" alt="">
-			<div slot="text">周边游</div>
-		</NavItem>
-		
-		<NavItem>
-			<img slot="icon" src="../../../assets/nav/美食.png" alt="">
-			<div slot="text">美食林</div>
-		</NavItem>
-		
-		<NavItem>
-			<img slot="icon" src="../../../assets/nav/旅游车.png" alt="">
-			<div slot="text">一日游</div>
-		</NavItem>
-		
-		<NavItem>
-			<img slot="icon" src="../../../assets/nav/地图.png" alt="">
-			<div slot="text">当地攻略</div>
+		<NavItem v-for="(item,index) in NavItem" :key="item">
+			<img slot="icon" :src="item.icon" alt="">
+			<div slot="text">{{item.text}}</div>
 		</NavItem>
 	</div>
 </template>
@@ -33,7 +13,13 @@
 		name:'Nav',
 		components:{
 			NavItem
-		}
+		},
+		data(){
+			return{
+				NavItem:this.$store.state.Navs.Nav
+			}
+		},
+		
 	}
 </script>
 

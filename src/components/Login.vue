@@ -14,6 +14,7 @@
 		      <el-button @click="resetForm('form')">重置</el-button>
 		    </el-form-item>
 		</el-form>
+		<el-empty  :image-size="200"></el-empty>
 	</div>
 </template>
 

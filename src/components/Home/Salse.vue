@@ -5,28 +5,12 @@
 			<a href="#" class="more">获取更多福利</a>
 		</div>
 		<div class="sales-bd">
-			<div class="row">
+			<div class="row" v-for="item in SalseItem">
 				<a href="#">
-					<img src="../../assets/salse/沟通.png" alt="">
+					<img :src="item.one" alt="">
 				</a>
 				<a href="#">
-					<img src="../../assets/salse/工作.png" alt="">
-				</a>
-			</div>
-			<div class="row">
-				<a href="#">
-					<img src="../../assets/salse/促销.png" alt="">
-				</a>
-				<a href="#">
-					<img src="../../assets/salse/思考.png" alt="">
-				</a>
-			</div>
-			<div class="row">
-				<a href="#">
-					<img src="../../assets/salse/查找.png" alt="">
-				</a>
-				<a href="#">
-					<img src="../../assets/salse/旅行.png" alt="">
+					<img :src="item.two" alt="">
 				</a>
 			</div>
 		</div>
@@ -35,6 +19,14 @@
 </template>
 
 <script>
+	export default{
+		name:"Salse",
+		data(){
+			return{
+				SalseItem:this.$store.state.Navs.Salse
+			}
+		}
+	}
 </script>
 
 <style>
@@ -51,7 +43,7 @@
 		justify-content: space-between;
 	}
 	.sales-hd h2{
-		margin-top: 5px;
+		margin-top: 10px;
 		margin-left: 4px;
 		color: orangered;
 		display: flex;
@@ -63,7 +55,7 @@
 		display: block;
 		width: 20px;
 		height: 20px;
-		background: url(../../assets/salse/庆祝.png) no-repeat left 0px ;
+		background: url(../../../static/salse/庆祝.png) no-repeat left 0px ;
 		background-size: 20px;
 		margin-left: 5px;
 	}

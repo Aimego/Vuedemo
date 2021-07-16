@@ -7,7 +7,6 @@
 					<slot name="text"></slot>
 				</div>
 		 	</div>
-		
 </template>
 
 <script>

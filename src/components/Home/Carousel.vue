@@ -2,8 +2,8 @@
 	
 	  <div class="block">
 	    <el-carousel trigger="click" height="150px" class="car">
-	      <el-carousel-item v-for="item in imgs" :key="item.id">
-				<img :src="item.imgUrl" alt="">
+	      <el-carousel-item v-for="(item,index) in CarouselItem" :key="index">
+				<img :src="item" alt="">
 	      </el-carousel-item>
 	    </el-carousel>
 	  </div>
@@ -15,20 +15,7 @@
 		name:'Carousel',
 		data(){
 			return{
-				imgs:[
-					{
-						id:'101',
-						imgUrl:require('../../assets/1.jpg')
-					},
-					{
-						id:'102',
-						imgUrl:require('../../assets/2.jpg')
-					},
-					{
-						id:'103',
-						imgUrl:require('../../assets/3.jpg')
-					}
-				]
+				CarouselItem:this.$store.state.Navs.Carousel
 			}
 		}
 	}

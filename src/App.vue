@@ -13,6 +13,7 @@ export default {
   components:{
 	  TabBar
   },
+ 
 
 }
 </script>

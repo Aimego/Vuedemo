@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state:{
-		use:{}
+		use:{},
+		Navs:{}
 	},
 	mutations:{
 		getValue(state,payload){
 			state.use = payload
+		},
+		getNav(state,payload){
+			state.Navs = payload
 		}
 	},
 	actions:{

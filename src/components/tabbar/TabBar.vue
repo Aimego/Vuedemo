@@ -1,13 +1,11 @@
 <template>
 	<div id="tab-bar">
-		<slot>
-			<tab-bar-item path="/home" activeColor="deeppink">
-				<img slot="item-icon-active" src="../../assets/tabbar/首页选中.png" alt="">
-				<img slot="item-icon" src="../../assets/tabbar/首页.png" alt="">
-				<div slot="item-text">首页</div>
+			<tab-bar-item v-for="(item,index) in TabbarItem" :key="index" :path="item.path" activeColor="deeppink">
+				<img slot="item-icon-active" :src="item.icon1" alt="">
+				<img slot="item-icon" :src="item.icon2" alt="">
+				<div slot="item-text">{{item.text}}</div>
 			</tab-bar-item>
-			
-			<tab-bar-item path="/calendar" activeColor="deeppink">
+			<!-- <tab-bar-item path="/calendar" activeColor="deeppink">
 				<img slot="item-icon-active" src="../../assets/tabbar/日历选中.png" alt="">
 				<img slot="item-icon" src="../../assets/tabbar/日历.png" alt="">
 				<div slot="item-text">日历</div>
@@ -23,8 +21,7 @@
 				<img slot="item-icon-active" src="../../assets/tabbar/我的选中.png" alt="">
 				<img slot="item-icon" src="../../assets/tabbar/我的.png" alt="">
 				<div slot="item-text">我的</div>
-			</tab-bar-item>
-		</slot>
+			</tab-bar-item> -->
 	</div>
 </template>
 
@@ -34,6 +31,20 @@
 		name:'TabBar',
 		components:{
 			TabBarItem
+		},
+		data(){
+			return{
+				TabbarItem:''
+			}
+		},
+		created(){
+			this.axios({
+				url:'https://mock.yonyoucloud.com/mock/17872/vuedemo/Trip'
+			}).then(res=>{
+
+				this.TabbarItem = res.TabBar;
+			})
+			
 		}
 	}
 </script>

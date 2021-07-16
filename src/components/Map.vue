@@ -40,7 +40,7 @@ export default {
 
 <style>
 	.map {
-	    height: 750px;
+	    height: 800px;
 	}
 	.BMap_geolocationContainer{
 		position: absolute;

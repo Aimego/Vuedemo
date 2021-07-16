@@ -5,6 +5,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
 import BaiduMap from 'vue-baidu-map'
 import store from './store'
+import axios from 'axios'
+import VueaAxios from 'vue-axios'
 
 Vue.use(BaiduMap, {
   ak: 'wbQxqFcVheqtGg8HfolIqeEW9eaq9nbo'
@@ -13,6 +15,20 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+Vue.use(VueaAxios,axios)
+
+
+axios.interceptors.response.use(config=>{
+	return config.data
+},err=>{
+	console.log(err)
+})
+
+axios({
+	url:'https://mock.yonyoucloud.com/mock/17872/vuedemo/Trip'
+}).then(res=>{
+	store.commit('getNav',res)
+})
 
 router.beforeEach((to,form,next) => {
 	if(to.path == '/home'){
@@ -23,6 +39,11 @@ router.beforeEach((to,form,next) => {
 	}
 	next();
 })
+
+// axios.interceptors.response.use(config=>{
+// 	console.log(config)
+// 	return config
+// })
 
 
 Vue.config.productionTip = false
